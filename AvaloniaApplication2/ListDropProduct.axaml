@@ -1,0 +1,64 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"  WindowState="Maximized" d:DesignWidth="1200" d:DesignHeight="850" MaxHeight="850" MinHeight="850" MaxWidth="1200" MinWidth="1200"
+        x:Class="AvaloniaApplication2.ListDopProduct"
+        Title="ListDopProduct" x:CompileBindings="False"  >
+	<Grid>
+		<ListBox x:Name="TagList" Width="150" Height="300" Margin="0,20,500,400">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<StackPanel  >
+							<TextBlock Margin="50,210,0,0" TextWrapping="Wrap" Text="{Binding Name}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="100,210,0,0" Text="{Binding Price}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<Image Width="80" Height="190" Source="{Binding photos }"></Image>
+						</StackPanel>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<StackPanel>
+			<TextBlock Margin="500,50,0,0">Все теги </TextBlock>
+		</StackPanel>
+		<ListBox x:Name="TagList2" Width="150" Height="300" Margin="300,20,0,400">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid >
+						<StackPanel  >
+							<TextBlock Margin="50,210,0,0" TextWrapping="Wrap" Text="{Binding Name}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="100,210,0,0" Text="{Binding Price}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<Image Width="80" Height="190" Source="{Binding photos }"></Image>
+						</StackPanel>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<StackPanel>
+			<Button Content="Назад" Margin="80,500,0,0" Click="Button_Click"></Button>
+		</StackPanel>
+
+
+
+		<StackPanel>
+			<TextBlock Margin="450,100,0,0">Добавление тега человеку</TextBlock>
+			<TextBox  Width="120" x:Name="TagNomer" Watermark="Номер тега" Margin="0,10,120,0"></TextBox>
+			<Button Margin="485,20,0,0" Click="Button_Click_2" >Добавить тег </Button>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="450,250,0,0">Удаление тега у человека</TextBlock>
+			<TextBox  Width="120" x:Name="TagNomer1" Watermark="Номер тега" Margin="0,10,120,0"></TextBox>
+			<Button Margin="485,20,0,0" Click="Button_Click_3">Удалить тег </Button>
+		</StackPanel>
+	</Grid>
+</Window>

@@ -1,0 +1,80 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"  WindowState="Maximized" d:DesignWidth="1200" d:DesignHeight="850" MaxHeight="850" MinHeight="850" MaxWidth="1200" MinWidth="1200"
+        x:Class="AvaloniaApplication2.RedWindow1"
+        Title="RedWindow1" x:CompileBindings="False">
+	<Grid>
+		<StackPanel HorizontalAlignment="Left">
+			<TextBlock Margin="100,50,0,0" Width="180" x:Name="Id">Id</TextBlock>
+			<TextBox  Margin="100,20,0,0" Width="180" Watermark="Name" x:Name="Name"></TextBox>
+
+		</StackPanel>
+		<StackPanel>
+			<TextBox Margin="0,160,630,0" Width="380" Height="100" TextWrapping="Wrap"  Watermark="Description" x:Name="Description"></TextBox>
+		</StackPanel>
+		<StackPanel>
+			<ComboBox x:Name="Filtr2" MaxDropDownHeight="70" SizeChanged="ComboBox_SizeChanged"  HorizontalAlignment="Left" Margin="100,280,0,0" >
+			</ComboBox>
+		</StackPanel>
+		<StackPanel>
+			<CheckBox IsChecked="True" x:Name="Sclad" Margin="100,430,0,0">Наличие на складе</CheckBox>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Left">
+			<TextBox Margin="100,380,0,0" Width="180" Watermark="Price" x:Name="Price"></TextBox>
+		</StackPanel>
+		<StackPanel Margin="650,100,0,0">
+			<TextBlock
+				Text="Изображение:"/>
+			<Image
+				Name="image_clientPhoto"
+				IsVisible="False"
+				Height="320"
+				HorizontalAlignment="Left"/>
+			<TextBlock
+				Name="tblock_clientPhoto"
+				IsVisible="False"/>
+			<StackPanel
+				Orientation="Horizontal">
+				<Button
+					Name="btn_deleteImage"
+					Content="Удалить"
+					IsVisible="False"
+					Click="Button_Click"/>
+				<Button
+					Name="btn_addImage"
+					Content="Добавить"
+					Click="Button_Click"/>
+			</StackPanel>
+		</StackPanel>
+		<StackPanel>
+			<Button Content="Назад" Margin="100,600,0,0"  Click="Button_Click_1"></Button>
+		</StackPanel>
+		<StackPanel>
+			<Button Content="Сохранить" Margin="300,600,0,0"  Click="Button_Click_2"></Button>
+		</StackPanel>
+		<ListBox x:Name="DopProd" Height="300" Width="200" Margin="900,400,0,0">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid >
+						<StackPanel  >
+							<TextBlock Margin="50,210,0,0" TextWrapping="Wrap" Text="{Binding Name}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="100,210,0,0" Text="{Binding Price}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<Image Width="80" Height="190" Source="{Binding photos }"></Image>
+						</StackPanel>
+						<StackPanel>
+							<Button Height="280" Width="300" x:Name="Buts" Tag="{Binding Name}"  Click="Button_Click_5" Background="Transparent"></Button>
+						</StackPanel>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<Button Content="Новый продукт" Margin="800,400,0,0" Click="Button_Click_3"></Button>
+		<Button Content="Редактировать список" Margin="750,500,0,0" Click="Button_Click_4"></Button>
+	</Grid>
+</Window>

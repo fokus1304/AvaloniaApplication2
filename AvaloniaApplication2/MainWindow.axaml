@@ -1,0 +1,64 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" WindowState="Maximized" d:DesignWidth="1200" d:DesignHeight="850" MaxHeight="850" MinHeight="850" MaxWidth="1200" MinWidth="1200"
+        x:Class="AvaloniaApplication2.MainWindow"
+        Title="AvaloniaApplication2" x:CompileBindings="False">
+	<Grid>
+	<ListBox Width="1100" Height="560"
+		Name="lbox_books"
+			
+		 Background="#e7fabf">
+		<ListBox.ItemsPanel>
+			<ItemsPanelTemplate>
+				<WrapPanel HorizontalAlignment="Center"/>
+			</ItemsPanelTemplate>
+		</ListBox.ItemsPanel>
+		<ListBox.ItemTemplate>
+			<DataTemplate>
+				<Grid Height="280" Width="300">
+					<StackPanel Background="{Binding Color}" >
+						<TextBlock Margin="50,210,0,0" TextWrapping="Wrap" Text="{Binding Name}"></TextBlock>
+					</StackPanel>
+					<StackPanel>
+						<TextBlock Margin="250,260,0,0" Text="{Binding Price}"></TextBlock>
+					</StackPanel>
+					<StackPanel>
+						<Image Width="180" Height="190" Source="{Binding photos}"></Image>
+					</StackPanel>
+					<StackPanel>
+						<Button Height="280" Width="300" x:Name="Buts" Tag="{Binding Name}"  Click="Button_Click" Background="Transparent"></Button>
+					</StackPanel>
+				</Grid>
+			</DataTemplate>
+		</ListBox.ItemTemplate>
+	</ListBox>
+	<StackPanel
+			>
+		<TextBlock
+			Name="tblock_itemsCount"
+			FontSize="25" HorizontalAlignment="Center"/>
+	</StackPanel>
+		<StackPanel>
+			<TextBlock HorizontalAlignment="Center" x:Name="ColvoKont" Margin="0,750,0,0"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<ComboBox x:Name="Filtr1" HorizontalAlignment="Right" Margin="0,50,100,0" SizeChanged="ComboBox_SizeChanged">
+				<ComboBoxItem Content="Все элементы"/>
+				<ComboBoxItem  Content="Цена: по убыванию"/>
+				<ComboBoxItem Content="Цена: по возрастанию"/>
+			</ComboBox>
+		</StackPanel>
+		<StackPanel>
+			<ComboBox x:Name="Filtr2" SizeChanged="ComboBox_SizeChanged_1"  HorizontalAlignment="Right" Margin="0,50,400,0" >
+			</ComboBox>
+		</StackPanel>
+		<StackPanel Width="250" Margin="50,60,0,0" HorizontalAlignment="Left">
+			<TextBox Watermark="Поиск"></TextBox>
+		</StackPanel>
+		<StackPanel Width="250" Margin="50,60,0,0" HorizontalAlignment="Left">
+			<Button Content="Новый товар" Margin="0,700,0,0" Click="Button_Click_1"></Button>
+		</StackPanel>
+	</Grid>		
+</Window>
